@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * WedsPro Canada — Founding Vendor Promo signup endpoint
+ * WedsPro Canada: New Vendor Promo signup endpoint
  * =====================================================================
  * Backs the `/vendors` promo page (ca-vendor-promo/index.html). On submit it:
  *   1. Validates the vendor's details.
@@ -9,13 +9,13 @@
  *      a 6-month free trial of the $365 CAD/year ("$1 a day") vendor plan.
  *      Stripe collects the card now, charges $0 today, and auto-charges $365
  *      when the trial ends.
- *   3. Emails the lead to the WedsPro CA inbox (best-effort — a mail failure
+ *   3. Emails the lead to the WedsPro CA inbox (best-effort: a mail failure
  *      never blocks the vendor's checkout).
  *   4. Returns { success, checkoutUrl } so the page can redirect to Stripe.
  *
  * This file is intentionally self-contained (plain CommonJS, no imports from
  * the rest of the CA backend) so it drops into any Express app. If your CA
- * backend is TypeScript you can rename it to .ts and add types — the logic is
+ * backend is TypeScript you can rename it to .ts and add types; the logic is
  * unchanged.
  *
  * ---------------------------------------------------------------------
@@ -40,7 +40,7 @@
  *                                        If unset, the price is created inline.
  *   CA_VENDOR_TRIAL_DAYS     (optional)  Free-trial length in days. Default 183.
  *   SITE_URL                 (required)  Public base URL of the promo site,
- *                                        e.g. https://wedspro.ca — used to
+ *                                        e.g. https://wedspro.ca, used to
  *                                        validate + build the Stripe return URLs.
  *   ALLOWED_ORIGINS          (optional)  Extra comma-separated origins allowed
  *                                        as Checkout return URLs (e.g. staging).
@@ -76,7 +76,7 @@ const MAX_LEN = 200; // hard cap on any single submitted field
 const stripeKey = process.env.STRIPE_SECRET_KEY;
 const stripe = stripeKey ? new Stripe(stripeKey, { apiVersion: '2025-08-27.basil' }) : null;
 if (!stripe) {
-  console.warn('[ca-vendor-promo] STRIPE_SECRET_KEY not set — /signup will return 503.');
+  console.warn('[ca-vendor-promo] STRIPE_SECRET_KEY not set; /signup will return 503.');
 }
 
 // SMTP transporter for the lead email. Built only if SMTP_HOST is configured.
@@ -92,7 +92,7 @@ const transporter = process.env.SMTP_HOST
     })
   : null;
 if (!transporter) {
-  console.warn('[ca-vendor-promo] SMTP not configured — vendor lead emails will be skipped.');
+  console.warn('[ca-vendor-promo] SMTP not configured; vendor lead emails will be skipped.');
 }
 
 /* ----------------------------- helpers ----------------------------- */
@@ -122,7 +122,7 @@ const normalizeUrl = (raw) => {
   return /^https?:\/\//i.test(v) ? v : 'https://' + v;
 };
 
-// Only return Checkout URLs that point at our own site — prevents the form
+// Only return Checkout URLs that point at our own site, which prevents the form
 // from being abused to bounce users to an attacker-controlled domain.
 const allowedOrigins = () =>
   [SITE_URL, ...String(process.env.ALLOWED_ORIGINS || '').split(',')]
@@ -154,10 +154,10 @@ const buildLeadEmailHtml = (v, when) => {
     ['Phone', '+1 ' + v.phone],
     ['Category', v.category],
     ['City', v.city],
-    ['Website', v.website || '—'],
-    ['Instagram', v.instagram || '—'],
-    ['Facebook', v.facebook || '—'],
-    ['Plan', '$1/day — 6 months free, then $365 CAD/year'],
+    ['Website', v.website || 'Not provided'],
+    ['Instagram', v.instagram || 'Not provided'],
+    ['Facebook', v.facebook || 'Not provided'],
+    ['Plan', '$1/day, 6 months free, then $365 CAD/year'],
     ['Submitted at', when.toISOString()],
   ];
   const tableRows = rows
@@ -173,7 +173,7 @@ const buildLeadEmailHtml = (v, when) => {
   return `<!doctype html><html><body style="margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5e9fa;padding:24px">
   <div style="max-width:560px;margin:0 auto;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 18px rgba(54,4,86,0.12)">
     <div style="background:linear-gradient(135deg,#941BCC,#5C0793);color:#fff;padding:22px 28px">
-      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:0.85;margin-bottom:4px">WedsPro Canada · Founding Vendor Promo</div>
+      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:0.85;margin-bottom:4px">WedsPro Canada · New Vendor Promo</div>
       <div style="font-size:20px;font-weight:600">New vendor signup</div>
     </div>
     <table style="width:100%;border-collapse:collapse;font-size:14px">${tableRows}</table>
@@ -197,7 +197,7 @@ router.post('/signup', async (req, res) => {
 
     const b = req.body || {};
 
-    // Honeypot — the form ships a hidden "nickname" field that humans never
+    // Honeypot: the form ships a hidden "nickname" field that humans never
     // see. Anything in it is a bot; reject without creating Stripe records.
     if (str(b.nickname)) {
       return res.status(400).json({ success: false, message: 'Submission rejected.' });
@@ -231,7 +231,7 @@ router.post('/signup', async (req, res) => {
     // Stripe metadata: business detail attached to the Customer + Subscription
     // so the WedsPro CA team can see it straight from the Stripe dashboard.
     const metadata = {
-      promo: 'ca-founding-vendor',
+      promo: 'ca-new-vendor',
       source: 'wedspro.ca/vendors',
       businessName: vendor.companyName,
       contactName: `${vendor.firstName} ${vendor.lastName}`,
@@ -263,13 +263,13 @@ router.post('/signup', async (req, res) => {
             unit_amount: PRICE_CAD_CENTS,
             recurring: { interval: 'year' },
             product_data: {
-              name: 'WedsPro Canada — Vendor Plan',
+              name: 'WedsPro Canada Vendor Plan',
               description: '$1 a day, billed $365 CAD/year. First 6 months free.',
             },
           },
         };
 
-    // Return URLs — validated against our own origin(s). Stripe swaps in the
+    // Return URLs, validated against our own origin(s). Stripe swaps in the
     // real id for the {CHECKOUT_SESSION_ID} token. The ?/& choice is based on
     // the URL we actually use, not the raw input (which may be discarded).
     const successBase = safeReturnUrl(b.successUrl, `${SITE_URL}/vendors/thank-you.html`);
@@ -297,7 +297,7 @@ router.post('/signup', async (req, res) => {
       cancel_url: cancelUrl,
     });
 
-    // Email the lead to the CA inbox — best-effort, never blocks the redirect.
+    // Email the lead to the CA inbox; best-effort, never blocks the redirect.
     const adminEmail = process.env.ADMIN_EMAIL;
     if (transporter && adminEmail) {
       try {
@@ -305,7 +305,7 @@ router.post('/signup', async (req, res) => {
           from: `"WedsPro Canada · Vendor Promo" <${process.env.MAILER_SENDER || process.env.SMTP_USER}>`,
           to: adminEmail,
           replyTo: vendor.email,
-          subject: `WedsPro CA · New founding vendor — ${vendor.firstName} ${vendor.lastName} (${vendor.category})`,
+          subject: `WedsPro CA · New vendor: ${vendor.firstName} ${vendor.lastName} (${vendor.category})`,
           html: buildLeadEmailHtml(vendor, new Date()),
         });
       } catch (mailErr) {

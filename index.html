@@ -8,7 +8,7 @@
     <title>WedsPro Canada for Vendors | 6 Months Free, Then $1 a Day</title>
     <meta
       name="description"
-      content="Founding vendor offer: join WedsPro Canada free for 6 months, then just $1 a day ($365 CAD/year). Add your card now, pay nothing today, cancel anytime during your trial."
+      content="New vendor offer: join WedsPro Canada free for 6 months, then just $1 a day ($365 CAD/year). Add your card now, pay nothing today, cancel anytime during your trial."
     />
 
     <!-- TODO(WedsPro CA): confirm the live CA domain before launch. -->
@@ -21,7 +21,7 @@
     <meta property="og:title" content="WedsPro Canada for Vendors | 6 Months Free" />
     <meta
       property="og:description"
-      content="Join WedsPro Canada free for 6 months, then just $1 a day. Pay nothing today — add your card and start getting bookings."
+      content="Join WedsPro Canada free for 6 months, then just $1 a day. Pay nothing today, add your card and start getting bookings."
     />
     <meta property="og:locale" content="en_CA" />
     <meta property="og:site_name" content="WedsPro" />
@@ -89,7 +89,7 @@
         flex-direction: column;
       }
 
-      /* ===== ambient decoration (soft orbs + faint grid — WedsPro app style) ===== */
+      /* ===== ambient decoration (soft orbs + faint grid, WedsPro app style) ===== */
       .decor {
         position: absolute;
         inset: 0;
@@ -147,6 +147,7 @@
         position: relative;
         z-index: 2;
         padding: 22px clamp(20px, 5vw, 60px);
+        padding-top: calc(22px + env(safe-area-inset-top, 0px));
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -178,7 +179,7 @@
         position: relative;
         z-index: 1;
         flex: 1;
-        padding: 24px clamp(20px, 5vw, 60px) 70px;
+        padding: 40px clamp(20px, 5vw, 60px) 40px;
       }
 
       .container {
@@ -191,7 +192,7 @@
       .intro {
         text-align: center;
         max-width: 760px;
-        margin: 12px auto 38px;
+        margin: 20px auto 38px;
       }
 
       .eyebrow {
@@ -722,7 +723,7 @@
         cursor: default;
       }
 
-      /* Honeypot — hidden from people, visible to dumb bots. */
+      /* Honeypot: hidden from people, visible to dumb bots. */
       .hp {
         position: absolute;
         left: -9999px;
@@ -1014,7 +1015,7 @@
       footer {
         position: relative;
         z-index: 1;
-        padding: 32px clamp(20px, 5vw, 60px);
+        padding: 18px clamp(20px, 5vw, 60px);
         border-top: 1px solid rgba(198, 119, 249, 0.14);
       }
 
@@ -1133,14 +1134,14 @@
           <div class="intro">
             <span class="eyebrow">
               <span class="pulse" aria-hidden="true"></span>
-              Founding Vendor Offer · Canada
+              New Vendor Offer · Canada
             </span>
             <h1>
               Your first 6 months on WedsPro are <span class="accent">completely free.</span>
             </h1>
             <p class="subtitle">
               List your business, get discovered by couples and event hosts across Canada, and start
-              winning bookings — free for half a year. After that, it's just a dollar a day.
+              winning bookings, free for half a year. After that, it's just a dollar a day.
             </p>
             <div class="hero-chips" aria-label="Vendor types welcome">
               <span class="hchip">Photographers</span>
@@ -1153,31 +1154,31 @@
             </div>
             <div class="hero-cta-wrap">
               <a class="cta-btn" href="#vendorSignup">
-                Claim your founding spot <span class="arrow" aria-hidden="true">→</span>
+                Claim your spot <span class="arrow" aria-hidden="true">→</span>
               </a>
               <span class="cta-note">$0 charged today · About a minute to sign up</span>
             </div>
           </div>
 
           <!-- ===== the promotion ===== -->
-          <section class="offer" aria-label="Founding vendor offer">
-            <div class="offer-badge">Founding Vendor</div>
+          <section class="offer" aria-label="New vendor offer">
+            <div class="offer-badge">New Vendor</div>
             <div class="offer-deal">
               <span class="offer-kicker">Limited-time launch offer</span>
               <div class="offer-big">6 months <span class="free">free</span></div>
               <p class="offer-then">
-                then <strong>$365 CAD / year</strong> — about <strong>$1 a day</strong>, billed once
+                then <strong>$365 CAD / year</strong>, about <strong>$1 a day</strong>, billed once
                 a year. No charge until your trial ends.
               </p>
               <div class="offer-value">
                 <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M12 3l2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2z"></path>
                 </svg>
-                About $182 of WedsPro — on the house
+                About $182 of WedsPro, on the house
               </div>
               <ul class="offer-reassure">
                 <li><strong>$0 charged today</strong></li>
-                <li>Cancel anytime during your trial — pay nothing</li>
+                <li>Cancel anytime during your trial, pay nothing</li>
                 <li>Card securely handled by Stripe</li>
               </ul>
             </div>
@@ -1206,10 +1207,10 @@
               <span class="title-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M12 2.5l2.6 6.9L22 12l-7.4 2.6L12 21.5 9.4 14.6 2 12l7.4-2.6z"></path></svg>
               </span>
-              Claim your founding vendor spot
+              Claim your new vendor spot
             </div>
             <div class="card-sub">
-              Takes about a minute. Next you'll add a card on our secure Stripe checkout — your 6 free
+              Takes about a minute. Next you'll add a card on our secure Stripe checkout, and your 6 free
               months start right away.
             </div>
 
@@ -1277,17 +1278,17 @@
               <div class="section-label">Show couples where to find you (optional)</div>
 
               <div class="field full">
-                <label for="website">Website <span class="opt">— optional</span></label>
+                <label for="website">Website <span class="opt">(optional)</span></label>
                 <input id="website" name="website" type="text" inputmode="url" placeholder="yourbusiness.ca" autocomplete="url" />
               </div>
 
               <div class="field">
-                <label for="instagram">Instagram <span class="opt">— optional</span></label>
+                <label for="instagram">Instagram <span class="opt">(optional)</span></label>
                 <input id="instagram" name="instagram" type="text" placeholder="@yourbusiness" />
               </div>
 
               <div class="field">
-                <label for="facebook">Facebook <span class="opt">— optional</span></label>
+                <label for="facebook">Facebook <span class="opt">(optional)</span></label>
                 <input id="facebook" name="facebook" type="text" placeholder="facebook.com/yourbusiness" />
               </div>
 
@@ -1323,7 +1324,7 @@
                   <svg viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="M9 12h6"></path><path d="M9 16h5"></path></svg>
                 </span>
                 <h3>Tell us about your business</h3>
-                <p>Fill in the form above and add a card on Stripe's secure checkout. Stripe holds your spot — WedsPro never sees your full card number, and $0 is charged today.</p>
+                <p>Fill in the form above and add a card on Stripe's secure checkout. Stripe holds your spot, and WedsPro never sees your full card number. $0 is charged today.</p>
               </div>
               <div class="step">
                 <span class="step-num" aria-hidden="true">2</span>
@@ -1331,7 +1332,7 @@
                   <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"></rect><path d="M12 8v13"></path><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"></path><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8"></path><path d="M16.5 8a2.5 2.5 0 0 0 0-5C13 3 12 8 12 8"></path></svg>
                 </span>
                 <h3>Get 6 months completely free</h3>
-                <p>Build your profile, get discovered by couples and event hosts, and win bookings — free for a full half-year, with every listing feature unlocked.</p>
+                <p>Build your profile, get discovered by couples and event hosts, and win bookings, free for a full half-year, with every listing feature unlocked.</p>
               </div>
               <div class="step">
                 <span class="step-num" aria-hidden="true">3</span>
@@ -1339,7 +1340,7 @@
                   <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M3 10h18"></path><path d="M8 2v4"></path><path d="M16 2v4"></path><path d="m9 16 2 2 4-4"></path></svg>
                 </span>
                 <h3>Then just a dollar a day</h3>
-                <p>After your trial it's $365 CAD per year — about $1 a day. Cancel anytime during the free trial and you pay nothing at all.</p>
+                <p>After your trial it's $365 CAD per year, about $1 a day. Cancel anytime during the free trial and you pay nothing at all.</p>
               </div>
             </div>
           </section>
@@ -1353,11 +1354,11 @@
             <div class="faq-grid">
               <div class="faq-item">
                 <h4>Am I charged anything today?</h4>
-                <p>No. You add a card to secure your founding-vendor spot, but $0 is charged now. Your first payment comes only after the 6-month free trial.</p>
+                <p>No. You add a card to secure your new vendor spot, but $0 is charged now. Your first payment comes only after the 6-month free trial.</p>
               </div>
               <div class="faq-item">
                 <h4>What happens after 6 months?</h4>
-                <p>Your plan renews at $365 CAD per year — roughly a dollar a day — and once a year after that, unless you cancel.</p>
+                <p>Your plan renews at $365 CAD per year, roughly a dollar a day, and once a year after that, unless you cancel.</p>
               </div>
               <div class="faq-item">
                 <h4>Can I cancel?</h4>
@@ -1374,7 +1375,7 @@
           <section class="closing-cta" aria-label="Get started">
             <h2>Your first 6 months are on us.</h2>
             <p>
-              Join WedsPro Canada as a founding vendor today — add your card, pay nothing for 6 months,
+              Join WedsPro Canada as a new vendor today. Add your card, pay nothing for 6 months,
               and start getting discovered by couples across the country.
             </p>
             <a class="cta-btn" href="#vendorSignup">
@@ -1452,17 +1453,17 @@
 
           var data = new FormData(form);
 
-          // Honeypot — a real person never fills this. Silently stop bots.
+          // Honeypot: a real person never fills this. Silently stop bots.
           if ((data.get('nickname') || '').toString().trim() !== '') {
             return;
           }
 
-          // Preview build (GitHub Pages): there's no backend to call — confirm
-          // the form is valid and explain what happens on the live site.
+          // Preview build (GitHub Pages): there's no backend to call, so we
+          // confirm the form is valid and explain what happens on the live site.
           if (IS_PREVIEW) {
             if (errEl) {
               errEl.textContent =
-                '✓ Your details look good. This is a design preview — on the live WedsPro Canada site this takes you to Stripe to start your 6-month free trial. Nothing is submitted here.';
+                '✓ Your details look good. This is a design preview. On the live WedsPro Canada site this takes you to Stripe to start your 6-month free trial. Nothing is submitted here.';
               errEl.classList.add('visible', 'demo');
               errEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
