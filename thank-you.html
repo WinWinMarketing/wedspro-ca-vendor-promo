@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en-CA">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#360456" />
+    <meta name="robots" content="noindex" />
+
+    <title>You're in | WedsPro Canada Founding Vendor</title>
+    <meta name="description" content="Your WedsPro Canada founding-vendor signup is complete. 6 months free, then $1 a day." />
+
+    <link rel="icon" href="assets/favicon.ico" sizes="any" />
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+    <link rel="preload" as="font" href="assets/Horas-Medium.ttf" type="font/ttf" crossorigin />
+
+    <style>
+      @font-face {
+        font-family: 'Horas';
+        src: url('assets/Horas-Medium.ttf') format('truetype');
+        font-weight: 400 600;
+        font-display: swap;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --violet: #941bcc;
+        --violet-deep: #5c0793;
+        --violet-darker: #360456;
+        --violet-soft: #c677f9;
+        --paper: #ffffff;
+        --ink: #1a0a26;
+      }
+
+      html, body { min-height: 100%; }
+
+      body {
+        font-family: 'Horas', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        color: var(--paper);
+        background:
+          radial-gradient(ellipse at top right, rgba(152, 35, 245, 0.4), transparent 55%),
+          radial-gradient(ellipse at bottom left, rgba(198, 119, 249, 0.18), transparent 60%),
+          linear-gradient(160deg, var(--violet-darker) 0%, var(--violet-deep) 60%, var(--violet) 100%);
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* ambient decoration — matches the WedsPro vendor promo page */
+      .decor {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .decor::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+        background-size: 66px 66px;
+        -webkit-mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, #000 0%, transparent 78%);
+        mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, #000 0%, transparent 78%);
+      }
+
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(90px);
+      }
+
+      .orb-1 {
+        width: 460px;
+        height: 460px;
+        background: #9823f5;
+        opacity: 0.42;
+        top: -170px;
+        right: -110px;
+      }
+
+      .orb-2 {
+        width: 420px;
+        height: 420px;
+        background: var(--violet-soft);
+        opacity: 0.26;
+        bottom: -150px;
+        left: -120px;
+      }
+
+      .topbar {
+        position: relative;
+        z-index: 1;
+        padding: 22px clamp(20px, 5vw, 60px);
+      }
+
+      .topbar img {
+        height: 30px;
+        width: auto;
+        filter: brightness(0) invert(1);
+      }
+
+      main {
+        position: relative;
+        z-index: 1;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 32px;
+      }
+
+      .card {
+        text-align: center;
+        max-width: 600px;
+      }
+
+      .check {
+        width: 76px;
+        height: 76px;
+        border-radius: 50%;
+        background: rgba(198, 119, 249, 0.2);
+        border: 2px solid rgba(198, 119, 249, 0.55);
+        box-shadow: 0 0 48px rgba(198, 119, 249, 0.45);
+        margin: 0 auto 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .check svg {
+        width: 34px;
+        height: 34px;
+        stroke: var(--violet-soft);
+        stroke-width: 2.5;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      h1 {
+        font-family: 'Horas', serif;
+        font-weight: 600;
+        font-size: clamp(30px, 5vw, 48px);
+        line-height: 1.1;
+        letter-spacing: -1px;
+        margin-bottom: 14px;
+      }
+
+      h1 .accent { color: var(--violet-soft); }
+
+      .lede {
+        font-size: clamp(15px, 1.6vw, 17px);
+        line-height: 1.6;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.82);
+        max-width: 48ch;
+        margin: 0 auto 28px;
+      }
+
+      .recap {
+        text-align: left;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(198, 119, 249, 0.25);
+        border-radius: 14px;
+        padding: 22px 24px;
+        margin: 0 auto 30px;
+        max-width: 440px;
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+      }
+
+      .recap-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 14px;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      .recap-row .dot {
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--violet);
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        line-height: 20px;
+        text-align: center;
+        margin-top: 1px;
+      }
+
+      .recap-row strong {
+        color: #fff;
+        font-weight: 600;
+      }
+
+      .home-link {
+        display: inline-block;
+        padding: 13px 26px;
+        border-radius: 10px;
+        background: var(--violet);
+        color: var(--paper);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        letter-spacing: 0.3px;
+        box-shadow: 0 4px 16px rgba(148, 27, 204, 0.35);
+        transition: background 0.2s;
+      }
+
+      .home-link:hover {
+        background: #7a14a8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="decor" aria-hidden="true">
+      <span class="orb orb-1"></span>
+      <span class="orb orb-2"></span>
+    </div>
+
+    <header class="topbar">
+      <a href="/" aria-label="WedsPro home"><img src="assets/logo.svg" alt="WedsPro" width="160" height="30" /></a>
+    </header>
+
+    <main>
+      <div class="card">
+        <div class="check" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="4 12.5 10 18.5 20 6.5"></polyline></svg>
+        </div>
+        <h1>You're in — <span class="accent">6 months free.</span></h1>
+        <p class="lede">
+          Thanks for joining WedsPro Canada as a founding vendor. Your card is securely on file with Stripe
+          and your free trial has started.
+        </p>
+
+        <div class="recap">
+          <div class="recap-row">
+            <span class="dot">✓</span>
+            <span><strong>$0 charged today.</strong> Your 6-month free trial is active right now.</span>
+          </div>
+          <div class="recap-row">
+            <span class="dot">✓</span>
+            <span><strong>Then $365 CAD / year</strong> — about a dollar a day — billed only after the trial ends.</span>
+          </div>
+          <div class="recap-row">
+            <span class="dot">✓</span>
+            <span>We'll email you before your first payment, and you can <strong>cancel anytime</strong> during the trial at no cost.</span>
+          </div>
+        </div>
+
+        <p class="lede">
+          Watch your inbox — we'll be in touch shortly with next steps to build out your vendor profile and
+          get you discovered by couples and event hosts.
+        </p>
+        <a class="home-link" href="/">Back to home</a>
+      </div>
+    </main>
+  </body>
+</html>

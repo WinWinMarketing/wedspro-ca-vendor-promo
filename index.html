@@ -1,0 +1,1519 @@
+<!doctype html>
+<html lang="en-CA">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#360456" />
+
+    <title>WedsPro Canada for Vendors | 6 Months Free, Then $1 a Day</title>
+    <meta
+      name="description"
+      content="Founding vendor offer: join WedsPro Canada free for 6 months, then just $1 a day ($365 CAD/year). Add your card now, pay nothing today, cancel anytime during your trial."
+    />
+
+    <!-- TODO(WedsPro CA): confirm the live CA domain before launch. -->
+    <link rel="canonical" href="https://wedspro.ca/vendors/" />
+    <link rel="icon" href="assets/favicon.ico" sizes="any" />
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://wedspro.ca/vendors/" />
+    <meta property="og:title" content="WedsPro Canada for Vendors | 6 Months Free" />
+    <meta
+      property="og:description"
+      content="Join WedsPro Canada free for 6 months, then just $1 a day. Pay nothing today — add your card and start getting bookings."
+    />
+    <meta property="og:locale" content="en_CA" />
+    <meta property="og:site_name" content="WedsPro" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="WedsPro Canada for Vendors | 6 Months Free" />
+    <meta
+      name="twitter:description"
+      content="6 months free, then $1 a day. Add your business to WedsPro Canada and start winning bookings."
+    />
+
+    <link rel="preload" as="font" href="assets/Horas-Medium.ttf" type="font/ttf" crossorigin />
+
+    <style>
+      @font-face {
+        font-family: 'Horas';
+        src: url('assets/Horas-Medium.ttf') format('truetype');
+        font-weight: 400 600;
+        font-display: swap;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --violet: #941bcc;
+        --violet-deep: #5c0793;
+        --violet-darker: #360456;
+        --violet-bright: #9823f5;
+        --violet-soft: #c677f9;
+        --violet-tint: #f5e9fa;
+        --paper: #ffffff;
+        --ink: #1a0a26;
+        --grey-3: #a4a4a4;
+        --grey-5: #344054;
+        --green: #2eaa3a;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+      }
+
+      body {
+        font-family: 'Horas', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        color: var(--paper);
+        background: var(--violet-darker);
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .page {
+        position: relative;
+        min-height: 100svh;
+        overflow: hidden;
+        background:
+          radial-gradient(ellipse at top right, rgba(152, 35, 245, 0.4), transparent 55%),
+          radial-gradient(ellipse at bottom left, rgba(198, 119, 249, 0.18), transparent 60%),
+          linear-gradient(160deg, var(--violet-darker) 0%, var(--violet-deep) 60%, var(--violet) 100%);
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ===== ambient decoration (soft orbs + faint grid — WedsPro app style) ===== */
+      .decor {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .decor::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+        background-size: 66px 66px;
+        -webkit-mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, #000 0%, transparent 78%);
+        mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, #000 0%, transparent 78%);
+      }
+
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(90px);
+      }
+
+      .orb-1 {
+        width: 480px;
+        height: 480px;
+        background: var(--violet-bright);
+        opacity: 0.45;
+        top: -170px;
+        right: -110px;
+      }
+
+      .orb-2 {
+        width: 440px;
+        height: 440px;
+        background: var(--violet-soft);
+        opacity: 0.28;
+        bottom: -160px;
+        left: -130px;
+      }
+
+      .orb-3 {
+        width: 360px;
+        height: 360px;
+        background: var(--violet);
+        opacity: 0.35;
+        top: 46%;
+        left: 58%;
+      }
+
+      /* ===== topbar ===== */
+      .topbar {
+        position: relative;
+        z-index: 2;
+        padding: 22px clamp(20px, 5vw, 60px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .topbar img {
+        height: 30px;
+        width: auto;
+        filter: brightness(0) invert(1);
+      }
+
+      .back-link {
+        font-size: 13px;
+        letter-spacing: 0.4px;
+        color: rgba(255, 255, 255, 0.78);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(198, 119, 249, 0.4);
+        padding-bottom: 1px;
+        transition: color 0.2s, border-color 0.2s;
+      }
+
+      .back-link:hover {
+        color: var(--violet-soft);
+        border-bottom-color: var(--violet-soft);
+      }
+
+      /* ===== layout ===== */
+      main {
+        position: relative;
+        z-index: 1;
+        flex: 1;
+        padding: 24px clamp(20px, 5vw, 60px) 70px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      /* ===== hero ===== */
+      .intro {
+        text-align: center;
+        max-width: 760px;
+        margin: 12px auto 38px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 7px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: var(--paper);
+        font-size: 11.5px;
+        font-weight: 500;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        margin-bottom: 24px;
+      }
+
+      .eyebrow .pulse {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--violet-soft);
+        animation: pulse 2s ease-out infinite;
+      }
+
+      @keyframes pulse {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(198, 119, 249, 0.55); }
+        50% { box-shadow: 0 0 0 8px rgba(198, 119, 249, 0); }
+      }
+
+      h1 {
+        font-family: 'Horas', serif;
+        font-weight: 600;
+        font-size: clamp(34px, 6vw, 62px);
+        line-height: 1.08;
+        letter-spacing: -1.4px;
+        color: var(--paper);
+        margin-bottom: 16px;
+      }
+
+      h1 .accent {
+        color: var(--violet-soft);
+        text-shadow: 0 0 38px rgba(198, 119, 249, 0.55);
+      }
+
+      .subtitle {
+        font-size: clamp(15px, 1.5vw, 18px);
+        line-height: 1.6;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 620px;
+        margin: 0 auto;
+      }
+
+      .hero-chips {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 24px;
+      }
+
+      .hchip {
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(198, 119, 249, 0.28);
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 12.5px;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+      }
+
+      .hchip:last-child {
+        background: rgba(198, 119, 249, 0.18);
+        color: var(--violet-soft);
+      }
+
+      .hero-cta-wrap {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+
+      /* ===== buttons ===== */
+      .cta-btn,
+      .submit-btn {
+        font-family: inherit;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        border: none;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #a724dd 0%, #7a14a8 100%);
+        color: var(--paper);
+        cursor: pointer;
+        box-shadow:
+          0 12px 30px -8px rgba(148, 27, 204, 0.65),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transition: transform 0.12s ease, box-shadow 0.2s ease, filter 0.2s ease;
+      }
+
+      .cta-btn:hover,
+      .submit-btn:hover {
+        filter: brightness(1.09);
+        transform: translateY(-2px);
+        box-shadow:
+          0 16px 38px -8px rgba(148, 27, 204, 0.75),
+          inset 0 1px 0 rgba(255, 255, 255, 0.28);
+      }
+
+      .cta-btn:active,
+      .submit-btn:active {
+        transform: translateY(0);
+      }
+
+      .cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 15px 32px;
+        text-decoration: none;
+      }
+
+      .cta-btn .arrow {
+        transition: transform 0.2s ease;
+      }
+
+      .cta-btn:hover .arrow {
+        transform: translateX(4px);
+      }
+
+      .cta-note {
+        font-size: 12.5px;
+        letter-spacing: 0.3px;
+        color: rgba(255, 255, 255, 0.62);
+      }
+
+      /* ===== offer card ===== */
+      .offer {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+        border-radius: 22px;
+        overflow: hidden;
+        margin-bottom: 30px;
+        box-shadow: 0 28px 70px -16px rgba(20, 2, 34, 0.7), 0 4px 14px rgba(0, 0, 0, 0.12);
+        transition: transform 0.28s ease, box-shadow 0.28s ease;
+      }
+
+      .offer:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 36px 84px -16px rgba(20, 2, 34, 0.78), 0 6px 18px rgba(0, 0, 0, 0.16);
+      }
+
+      @media (max-width: 720px) {
+        .offer {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+
+      .offer-badge {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        z-index: 3;
+        padding: 6px 13px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.16);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: #fff;
+        font-size: 10.5px;
+        font-weight: 600;
+        letter-spacing: 1.6px;
+        text-transform: uppercase;
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+      }
+
+      .offer-deal {
+        position: relative;
+        padding: clamp(30px, 4vw, 44px);
+        background: linear-gradient(155deg, #5c0793 0%, #360456 58%, #2a0342 100%);
+        color: var(--paper);
+      }
+
+      .offer-deal::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 82% 4%, rgba(198, 119, 249, 0.4), transparent 58%);
+        pointer-events: none;
+      }
+
+      .offer-deal > * {
+        position: relative;
+      }
+
+      .offer-kicker {
+        display: inline-block;
+        font-size: 11.5px;
+        font-weight: 600;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        color: var(--violet-soft);
+        margin-bottom: 14px;
+      }
+
+      .offer-big {
+        font-family: 'Horas', serif;
+        font-weight: 600;
+        font-size: clamp(40px, 7vw, 62px);
+        line-height: 1;
+        letter-spacing: -1.5px;
+        margin-bottom: 12px;
+      }
+
+      .offer-big .free {
+        color: var(--violet-soft);
+        text-shadow: 0 0 30px rgba(198, 119, 249, 0.6);
+      }
+
+      .offer-then {
+        font-size: 15px;
+        line-height: 1.55;
+        color: rgba(255, 255, 255, 0.82);
+        margin-bottom: 18px;
+      }
+
+      .offer-then strong {
+        color: #fff;
+        font-weight: 600;
+      }
+
+      .offer-value {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 15px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(198, 119, 249, 0.4);
+        font-size: 13px;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 24px;
+      }
+
+      .offer-value svg {
+        width: 15px;
+        height: 15px;
+        flex-shrink: 0;
+      }
+
+      .offer-reassure {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+        padding-top: 20px;
+      }
+
+      .offer-reassure li {
+        position: relative;
+        padding-left: 28px;
+        font-size: 13.5px;
+        line-height: 1.45;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .offer-reassure li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 19px;
+        height: 19px;
+        border-radius: 50%;
+        background: rgba(198, 119, 249, 0.28);
+        border: 1px solid rgba(198, 119, 249, 0.6);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 11px;
+      }
+
+      .offer-included {
+        padding: clamp(30px, 4vw, 44px);
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      .offer-included h3 {
+        font-family: 'Horas', serif;
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--violet-darker);
+        margin-bottom: 18px;
+      }
+
+      .feature-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+      }
+
+      .feature-list li {
+        position: relative;
+        padding-left: 30px;
+        font-size: 14px;
+        line-height: 1.45;
+        color: var(--grey-5);
+      }
+
+      .feature-list li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 6px;
+        /* Two layers: the check icon sits on top of the violet gradient. */
+        background-image:
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E"),
+          linear-gradient(135deg, var(--violet) 0%, var(--violet-deep) 100%);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 12px, cover;
+      }
+
+      /* ===== form card ===== */
+      .form-card {
+        position: relative;
+        background: var(--paper);
+        border-radius: 20px;
+        padding: clamp(28px, 4vw, 46px);
+        padding-top: clamp(34px, 4vw, 52px);
+        overflow: hidden;
+        box-shadow: 0 28px 70px -16px rgba(20, 2, 34, 0.6), 0 4px 12px rgba(0, 0, 0, 0.1);
+        color: var(--ink);
+        scroll-margin-top: 20px;
+      }
+
+      .form-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: linear-gradient(90deg, var(--violet-bright), var(--violet), var(--violet-deep));
+      }
+
+      .card-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: 'Horas', serif;
+        font-weight: 600;
+        font-size: 23px;
+        color: var(--violet-darker);
+        margin-bottom: 5px;
+      }
+
+      .card-title .title-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 9px;
+        background: linear-gradient(135deg, var(--violet) 0%, var(--violet-deep) 100%);
+        flex-shrink: 0;
+      }
+
+      .card-title .title-icon svg {
+        width: 17px;
+        height: 17px;
+        fill: #fff;
+      }
+
+      .card-sub {
+        font-size: 14px;
+        color: var(--grey-5);
+        margin-bottom: 26px;
+        line-height: 1.5;
+      }
+
+      .form-grid {
+        display: grid;
+        /* minmax(0, 1fr) so inputs can shrink inside their cell on small
+           screens instead of forcing the card to overflow horizontally. */
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 16px 18px;
+      }
+
+      .form-grid > * {
+        min-width: 0;
+      }
+
+      .form-grid .full {
+        grid-column: 1 / -1;
+      }
+
+      @media (max-width: 600px) {
+        .form-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+
+      .section-label {
+        grid-column: 1 / -1;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 11.5px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--grey-3);
+        margin-top: 10px;
+      }
+
+      .section-label::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, #e3d9ec, transparent);
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .field label {
+        font-size: 12.5px;
+        font-weight: 600;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        color: var(--violet-darker);
+      }
+
+      .field label .req {
+        color: var(--violet);
+        margin-left: 2px;
+      }
+
+      .field label .opt {
+        color: var(--grey-3);
+        margin-left: 4px;
+        font-weight: 500;
+        text-transform: none;
+        letter-spacing: 0;
+      }
+
+      .field input,
+      .field select {
+        appearance: none;
+        -webkit-appearance: none;
+        font-family: inherit;
+        font-size: 16px; /* >= 16px stops iOS auto-zoom on focus */
+        padding: 12px 14px;
+        border: 1.5px solid #e3d9ec;
+        border-radius: 10px;
+        background: #fff;
+        color: var(--ink);
+        transition: border-color 0.15s, box-shadow 0.15s;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .field input:hover,
+      .field select:hover {
+        border-color: #d3c2e3;
+      }
+
+      .field input:focus,
+      .field select:focus {
+        outline: none;
+        border-color: var(--violet);
+        box-shadow: 0 0 0 3px rgba(148, 27, 204, 0.15);
+      }
+
+      .field input::placeholder {
+        color: #aaa;
+      }
+
+      .field select {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%235C0793'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+        background-size: 14px;
+        padding-right: 36px;
+      }
+
+      .field select:invalid {
+        color: #aaa;
+      }
+
+      .phone-row {
+        display: grid;
+        grid-template-columns: 68px minmax(0, 1fr);
+        gap: 8px;
+      }
+
+      .phone-row > * {
+        min-width: 0;
+      }
+
+      .phone-row input[readonly] {
+        text-align: center;
+        background: #f7f1fb;
+        color: var(--violet-darker);
+        font-weight: 600;
+        cursor: default;
+      }
+
+      /* Honeypot — hidden from people, visible to dumb bots. */
+      .hp {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+
+      .actions {
+        margin-top: 26px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 16px 22px;
+      }
+
+      .submit-btn:disabled {
+        opacity: 0.62;
+        cursor: wait;
+        filter: none;
+        transform: none;
+      }
+
+      .fine-print {
+        font-size: 12.5px;
+        color: var(--grey-5);
+        line-height: 1.55;
+      }
+
+      .secure-note {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 12.5px;
+        color: var(--grey-5);
+        justify-content: center;
+        margin-top: 2px;
+      }
+
+      .secure-note svg {
+        width: 14px;
+        height: 14px;
+        stroke: var(--green);
+        fill: none;
+        stroke-width: 2.2;
+        flex-shrink: 0;
+      }
+
+      /* Inline error slot (only shown when populated). */
+      .form-error {
+        display: none;
+        margin-top: 14px;
+        padding: 10px 14px;
+        background: #fdecec;
+        border: 1px solid #f3b5b5;
+        border-radius: 8px;
+        font-size: 13.5px;
+        color: #8a1212;
+      }
+      .form-error.visible { display: block; }
+
+      /* ===== section headings ===== */
+      .section-heading {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .section-heading .kicker {
+        display: inline-block;
+        font-size: 11.5px;
+        font-weight: 600;
+        letter-spacing: 2.4px;
+        text-transform: uppercase;
+        color: var(--violet-soft);
+        margin-bottom: 10px;
+      }
+
+      .section-heading h2 {
+        font-family: 'Horas', serif;
+        font-weight: 600;
+        font-size: clamp(26px, 3.6vw, 36px);
+        color: var(--paper);
+        letter-spacing: -0.6px;
+        margin-bottom: 8px;
+      }
+
+      .section-heading p {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      /* ===== how it works ===== */
+      .steps-section {
+        margin-top: 70px;
+      }
+
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      @media (max-width: 720px) {
+        .steps-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .step {
+        position: relative;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(198, 119, 249, 0.22);
+        border-radius: 16px;
+        padding: 26px 24px;
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      }
+
+      .step:hover {
+        transform: translateY(-4px);
+        border-color: rgba(198, 119, 249, 0.55);
+        background: rgba(255, 255, 255, 0.09);
+      }
+
+      .step-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, var(--violet) 0%, var(--violet-deep) 100%);
+        box-shadow: 0 8px 20px -6px rgba(148, 27, 204, 0.7);
+        margin-bottom: 16px;
+      }
+
+      .step-icon svg {
+        width: 24px;
+        height: 24px;
+        stroke: #fff;
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .step .step-num {
+        position: absolute;
+        top: 22px;
+        right: 24px;
+        font-family: 'Horas', serif;
+        font-size: 34px;
+        font-weight: 600;
+        color: rgba(198, 119, 249, 0.28);
+        line-height: 1;
+      }
+
+      .step h3 {
+        font-family: 'Horas', serif;
+        font-weight: 600;
+        font-size: 17.5px;
+        color: var(--paper);
+        margin-bottom: 8px;
+      }
+
+      .step p {
+        font-size: 13.5px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      /* ===== faq ===== */
+      .faq-section {
+        margin-top: 64px;
+      }
+
+      .faq-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px 20px;
+      }
+
+      @media (max-width: 600px) {
+        .faq-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .faq-item {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(198, 119, 249, 0.18);
+        border-radius: 14px;
+        padding: 22px 24px;
+        transition: border-color 0.2s ease, background 0.2s ease;
+      }
+
+      .faq-item:hover {
+        border-color: rgba(198, 119, 249, 0.45);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .faq-item h4 {
+        display: flex;
+        align-items: baseline;
+        gap: 9px;
+        font-family: 'Horas', serif;
+        font-weight: 600;
+        font-size: 16px;
+        color: var(--violet-soft);
+        margin-bottom: 8px;
+      }
+
+      .faq-item h4::before {
+        content: 'Q';
+        flex-shrink: 0;
+        font-size: 12px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.55);
+        background: rgba(198, 119, 249, 0.2);
+        border-radius: 6px;
+        padding: 3px 7px;
+      }
+
+      .faq-item p {
+        font-size: 13.5px;
+        line-height: 1.62;
+        color: rgba(255, 255, 255, 0.76);
+      }
+
+      /* ===== closing cta ===== */
+      .closing-cta {
+        position: relative;
+        margin-top: 64px;
+        text-align: center;
+        padding: clamp(38px, 5vw, 60px) clamp(24px, 4vw, 56px);
+        border-radius: 22px;
+        background: linear-gradient(135deg, rgba(148, 27, 204, 0.22), rgba(92, 7, 147, 0.12));
+        border: 1px solid rgba(198, 119, 249, 0.32);
+        overflow: hidden;
+      }
+
+      .closing-cta::before {
+        content: '';
+        position: absolute;
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        background: var(--violet-bright);
+        opacity: 0.22;
+        filter: blur(80px);
+        top: -160px;
+        left: 50%;
+        transform: translateX(-50%);
+        pointer-events: none;
+      }
+
+      .closing-cta > * {
+        position: relative;
+      }
+
+      .closing-cta h2 {
+        font-family: 'Horas', serif;
+        font-weight: 600;
+        font-size: clamp(26px, 3.8vw, 38px);
+        letter-spacing: -0.6px;
+        color: var(--paper);
+        margin-bottom: 12px;
+      }
+
+      .closing-cta p {
+        font-size: 15px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.78);
+        max-width: 480px;
+        margin: 0 auto 26px;
+      }
+
+      .closing-cta .cta-note {
+        display: block;
+        margin-top: 14px;
+      }
+
+      /* ===== footer ===== */
+      footer {
+        position: relative;
+        z-index: 1;
+        padding: 32px clamp(20px, 5vw, 60px);
+        border-top: 1px solid rgba(198, 119, 249, 0.14);
+      }
+
+      .footer-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      footer a {
+        color: rgba(255, 255, 255, 0.75);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(198, 119, 249, 0.35);
+        padding-bottom: 1px;
+      }
+
+      footer a:hover {
+        color: var(--violet-soft);
+      }
+
+      /* ===== GitHub Pages preview badge (injected only on *.github.io) ===== */
+      .preview-badge {
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 15px;
+        border-radius: 999px;
+        background: rgba(54, 4, 86, 0.94);
+        border: 1px solid rgba(198, 119, 249, 0.5);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.4px;
+        box-shadow: 0 8px 26px rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+      }
+
+      .preview-badge .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--violet-soft);
+        animation: pulse 2s ease-out infinite;
+      }
+
+      /* Friendly (non-error) variant of the inline message slot. */
+      .form-error.demo {
+        background: #f1e9fb;
+        border-color: #d9c2ef;
+        color: var(--violet-deep);
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        .orb-1 { animation: drift 24s ease-in-out infinite; }
+        .orb-2 { animation: drift 30s ease-in-out infinite reverse; }
+        .orb-3 { animation: drift 27s ease-in-out infinite; }
+
+        @keyframes drift {
+          0%, 100% { transform: translate(0, 0); }
+          50% { transform: translate(34px, -28px); }
+        }
+
+        .eyebrow,
+        h1,
+        .subtitle,
+        .hero-chips,
+        .hero-cta-wrap,
+        .offer,
+        .form-card {
+          opacity: 0;
+          transform: translateY(14px);
+          animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .eyebrow { animation-delay: 0.05s; }
+        h1 { animation-delay: 0.14s; }
+        .subtitle { animation-delay: 0.24s; }
+        .hero-chips { animation-delay: 0.34s; }
+        .hero-cta-wrap { animation-delay: 0.42s; }
+        .offer { animation-delay: 0.52s; }
+        .form-card { animation-delay: 0.62s; }
+
+        @keyframes rise {
+          to { opacity: 1; transform: translateY(0); }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <div class="decor" aria-hidden="true">
+        <span class="orb orb-1"></span>
+        <span class="orb orb-2"></span>
+        <span class="orb orb-3"></span>
+      </div>
+
+      <header class="topbar">
+        <a href="/" aria-label="WedsPro home"><img src="assets/logo.svg" alt="WedsPro" width="160" height="30" /></a>
+        <a class="back-link" href="/">← Back to home</a>
+      </header>
+
+      <main>
+        <div class="container">
+          <!-- ===== hero ===== -->
+          <div class="intro">
+            <span class="eyebrow">
+              <span class="pulse" aria-hidden="true"></span>
+              Founding Vendor Offer · Canada
+            </span>
+            <h1>
+              Your first 6 months on WedsPro are <span class="accent">completely free.</span>
+            </h1>
+            <p class="subtitle">
+              List your business, get discovered by couples and event hosts across Canada, and start
+              winning bookings — free for half a year. After that, it's just a dollar a day.
+            </p>
+            <div class="hero-chips" aria-label="Vendor types welcome">
+              <span class="hchip">Photographers</span>
+              <span class="hchip">Venues</span>
+              <span class="hchip">Caterers</span>
+              <span class="hchip">DJs &amp; Bands</span>
+              <span class="hchip">Florists</span>
+              <span class="hchip">Planners</span>
+              <span class="hchip">+ every vendor</span>
+            </div>
+            <div class="hero-cta-wrap">
+              <a class="cta-btn" href="#vendorSignup">
+                Claim your founding spot <span class="arrow" aria-hidden="true">→</span>
+              </a>
+              <span class="cta-note">$0 charged today · About a minute to sign up</span>
+            </div>
+          </div>
+
+          <!-- ===== the promotion ===== -->
+          <section class="offer" aria-label="Founding vendor offer">
+            <div class="offer-badge">Founding Vendor</div>
+            <div class="offer-deal">
+              <span class="offer-kicker">Limited-time launch offer</span>
+              <div class="offer-big">6 months <span class="free">free</span></div>
+              <p class="offer-then">
+                then <strong>$365 CAD / year</strong> — about <strong>$1 a day</strong>, billed once
+                a year. No charge until your trial ends.
+              </p>
+              <div class="offer-value">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 3l2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2z"></path>
+                </svg>
+                About $182 of WedsPro — on the house
+              </div>
+              <ul class="offer-reassure">
+                <li><strong>$0 charged today</strong></li>
+                <li>Cancel anytime during your trial — pay nothing</li>
+                <li>Card securely handled by Stripe</li>
+              </ul>
+            </div>
+            <div class="offer-included">
+              <h3>Everything your WedsPro listing includes</h3>
+              <ul class="feature-list">
+                <li>A full vendor profile with photos, services and pricing</li>
+                <li>Get discovered by couples &amp; hosts planning real events</li>
+                <li>Receive booking enquiries and leads directly</li>
+                <li>Appear in category &amp; location search results</li>
+                <li>Customer reviews to build your reputation</li>
+                <li>Featured placement on relevant event pages</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- ===== signup form ===== -->
+          <form
+            id="vendorSignup"
+            class="form-card"
+            action="https://api.wedspro.ca/api/ca-vendor-promo/signup"
+            method="POST"
+            autocomplete="on"
+          >
+            <div class="card-title">
+              <span class="title-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2.5l2.6 6.9L22 12l-7.4 2.6L12 21.5 9.4 14.6 2 12l7.4-2.6z"></path></svg>
+              </span>
+              Claim your founding vendor spot
+            </div>
+            <div class="card-sub">
+              Takes about a minute. Next you'll add a card on our secure Stripe checkout — your 6 free
+              months start right away.
+            </div>
+
+            <div id="formError" class="form-error" role="alert" aria-live="polite"></div>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="first_name">First name <span class="req">*</span></label>
+                <input id="first_name" name="firstName" type="text" required placeholder="Jordan" autocomplete="given-name" />
+              </div>
+
+              <div class="field">
+                <label for="last_name">Last name <span class="req">*</span></label>
+                <input id="last_name" name="lastName" type="text" required placeholder="Bell" autocomplete="family-name" />
+              </div>
+
+              <div class="field full">
+                <label for="company_name">Business name <span class="req">*</span></label>
+                <input id="company_name" name="companyName" type="text" required placeholder="Bell &amp; Co. Photography" autocomplete="organization" />
+              </div>
+
+              <div class="field full">
+                <label for="email">Email <span class="req">*</span></label>
+                <input id="email" name="email" type="email" required placeholder="you@yourbusiness.ca" autocomplete="email" />
+              </div>
+
+              <div class="field full">
+                <label for="phone">Phone <span class="req">*</span></label>
+                <div class="phone-row">
+                  <input type="text" value="+1" readonly aria-label="Country code" />
+                  <input id="phone" name="phone" type="tel" required pattern="[0-9 \-\(\)]{10,16}" placeholder="(416) 555-0199" autocomplete="tel-national" inputmode="tel" />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="category">Vendor category <span class="req">*</span></label>
+                <select id="category" name="category" required>
+                  <option value="" disabled selected>Select your category</option>
+                  <option>Photography</option>
+                  <option>Videography / Cinematography</option>
+                  <option>Wedding &amp; Event Planning</option>
+                  <option>Venue / Banquet Hall</option>
+                  <option>Catering</option>
+                  <option>Decor &amp; Florals</option>
+                  <option>DJ / Music / Live Band</option>
+                  <option>Makeup &amp; Hair</option>
+                  <option>Cakes &amp; Desserts</option>
+                  <option>Officiant</option>
+                  <option>Transportation / Limo</option>
+                  <option>Bridal &amp; Formal Wear</option>
+                  <option>Jewellery</option>
+                  <option>Invitations &amp; Stationery</option>
+                  <option>Photo Booth</option>
+                  <option>Entertainment</option>
+                  <option>Event Rentals</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="city">City <span class="req">*</span></label>
+                <input id="city" name="city" type="text" required placeholder="Toronto, Mississauga, Vancouver…" autocomplete="address-level2" />
+              </div>
+
+              <div class="section-label">Show couples where to find you (optional)</div>
+
+              <div class="field full">
+                <label for="website">Website <span class="opt">— optional</span></label>
+                <input id="website" name="website" type="text" inputmode="url" placeholder="yourbusiness.ca" autocomplete="url" />
+              </div>
+
+              <div class="field">
+                <label for="instagram">Instagram <span class="opt">— optional</span></label>
+                <input id="instagram" name="instagram" type="text" placeholder="@yourbusiness" />
+              </div>
+
+              <div class="field">
+                <label for="facebook">Facebook <span class="opt">— optional</span></label>
+                <input id="facebook" name="facebook" type="text" placeholder="facebook.com/yourbusiness" />
+              </div>
+
+              <!-- Honeypot: leave blank. Real users never see this. -->
+              <input class="hp" type="text" name="nickname" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            </div>
+
+            <div class="actions">
+              <button class="submit-btn" type="submit">Start my 6 months free →</button>
+              <p class="secure-note">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                You'll continue to Stripe's secure checkout to add your card
+              </p>
+              <p class="fine-print">
+                Nothing is charged today. Your 6-month free trial starts immediately; your first payment of
+                $365 CAD is due 6 months from now, then once a year. Cancel anytime before your trial ends
+                and you'll never be charged. By continuing you agree WedsPro may contact you about your account.
+              </p>
+            </div>
+          </form>
+
+          <!-- ===== how it works ===== -->
+          <section class="steps-section" aria-label="How the offer works">
+            <div class="section-heading">
+              <span class="kicker">Simple &amp; quick</span>
+              <h2>How the offer works</h2>
+              <p>Three steps, about a minute, no charge today.</p>
+            </div>
+            <div class="steps-grid">
+              <div class="step">
+                <span class="step-num" aria-hidden="true">1</span>
+                <span class="step-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="M9 12h6"></path><path d="M9 16h5"></path></svg>
+                </span>
+                <h3>Tell us about your business</h3>
+                <p>Fill in the form above and add a card on Stripe's secure checkout. Stripe holds your spot — WedsPro never sees your full card number, and $0 is charged today.</p>
+              </div>
+              <div class="step">
+                <span class="step-num" aria-hidden="true">2</span>
+                <span class="step-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"></rect><path d="M12 8v13"></path><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"></path><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8"></path><path d="M16.5 8a2.5 2.5 0 0 0 0-5C13 3 12 8 12 8"></path></svg>
+                </span>
+                <h3>Get 6 months completely free</h3>
+                <p>Build your profile, get discovered by couples and event hosts, and win bookings — free for a full half-year, with every listing feature unlocked.</p>
+              </div>
+              <div class="step">
+                <span class="step-num" aria-hidden="true">3</span>
+                <span class="step-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M3 10h18"></path><path d="M8 2v4"></path><path d="M16 2v4"></path><path d="m9 16 2 2 4-4"></path></svg>
+                </span>
+                <h3>Then just a dollar a day</h3>
+                <p>After your trial it's $365 CAD per year — about $1 a day. Cancel anytime during the free trial and you pay nothing at all.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===== faq ===== -->
+          <section class="faq-section" aria-label="Frequently asked questions">
+            <div class="section-heading">
+              <span class="kicker">Good to know</span>
+              <h2>Questions, answered</h2>
+            </div>
+            <div class="faq-grid">
+              <div class="faq-item">
+                <h4>Am I charged anything today?</h4>
+                <p>No. You add a card to secure your founding-vendor spot, but $0 is charged now. Your first payment comes only after the 6-month free trial.</p>
+              </div>
+              <div class="faq-item">
+                <h4>What happens after 6 months?</h4>
+                <p>Your plan renews at $365 CAD per year — roughly a dollar a day — and once a year after that, unless you cancel.</p>
+              </div>
+              <div class="faq-item">
+                <h4>Can I cancel?</h4>
+                <p>Yes. Cancel anytime during the 6-month trial and you'll never be charged. After that, cancel before any yearly renewal.</p>
+              </div>
+              <div class="faq-item">
+                <h4>Is my card information safe?</h4>
+                <p>Yes. Card details are entered and stored on Stripe's secure, PCI-compliant checkout. WedsPro never sees or stores your full card number.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===== closing cta ===== -->
+          <section class="closing-cta" aria-label="Get started">
+            <h2>Your first 6 months are on us.</h2>
+            <p>
+              Join WedsPro Canada as a founding vendor today — add your card, pay nothing for 6 months,
+              and start getting discovered by couples across the country.
+            </p>
+            <a class="cta-btn" href="#vendorSignup">
+              Start my 6 months free <span class="arrow" aria-hidden="true">→</span>
+            </a>
+            <span class="cta-note">Takes about a minute · Cancel anytime in your trial</span>
+          </section>
+        </div>
+      </main>
+
+      <footer>
+        <div class="footer-inner">
+          <span>&copy; <span id="year">2026</span> WedsPro Canada</span>
+          <!-- TODO(WedsPro CA): confirm the public contact address. -->
+          <a href="mailto:hello@wedspro.ca">hello@wedspro.ca</a>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      /*
+       * Vendor promo signup.
+       * Posts the form as JSON to the CA backend, which (1) emails the lead to
+       * the WedsPro CA inbox and (2) creates a Stripe Checkout subscription with
+       * a 6-month free trial. The backend returns { checkoutUrl } and we send the
+       * vendor straight to Stripe to add their card. On any failure we show an
+       * inline message and leave the form intact.
+       */
+      (function () {
+        var form = document.getElementById('vendorSignup');
+        if (!form) return;
+        var errEl = document.getElementById('formError');
+        var btn = form.querySelector('.submit-btn');
+        var originalLabel = btn ? btn.textContent : 'Start my 6 months free →';
+
+        // --- GitHub Pages preview mode -----------------------------------
+        // Runs ONLY when the page is served from *.github.io, so the live
+        // wedspro.ca deployment is completely unaffected. It flags the page
+        // noindex, drops a "preview" badge, and (below) swaps the Stripe
+        // hand-off for a friendly message since the demo has no backend.
+        var IS_PREVIEW = /\.github\.io$/i.test(location.hostname);
+        if (IS_PREVIEW) {
+          var noindex = document.createElement('meta');
+          noindex.name = 'robots';
+          noindex.content = 'noindex';
+          document.head.appendChild(noindex);
+
+          var badge = document.createElement('div');
+          badge.className = 'preview-badge';
+          badge.innerHTML = '<span class="dot"></span>Design preview · not live';
+          document.body.appendChild(badge);
+        }
+        // -----------------------------------------------------------------
+
+        function showError(msg) {
+          if (errEl) {
+            errEl.textContent = msg;
+            errEl.classList.add('visible');
+            errEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+          if (btn) {
+            btn.disabled = false;
+            btn.textContent = originalLabel;
+          }
+        }
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (errEl) {
+            errEl.classList.remove('visible', 'demo');
+            errEl.textContent = '';
+          }
+
+          var data = new FormData(form);
+
+          // Honeypot — a real person never fills this. Silently stop bots.
+          if ((data.get('nickname') || '').toString().trim() !== '') {
+            return;
+          }
+
+          // Preview build (GitHub Pages): there's no backend to call — confirm
+          // the form is valid and explain what happens on the live site.
+          if (IS_PREVIEW) {
+            if (errEl) {
+              errEl.textContent =
+                '✓ Your details look good. This is a design preview — on the live WedsPro Canada site this takes you to Stripe to start your 6-month free trial. Nothing is submitted here.';
+              errEl.classList.add('visible', 'demo');
+              errEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            return;
+          }
+
+          var payload = {
+            firstName: (data.get('firstName') || '').toString().trim(),
+            lastName: (data.get('lastName') || '').toString().trim(),
+            companyName: (data.get('companyName') || '').toString().trim(),
+            email: (data.get('email') || '').toString().trim(),
+            phone: (data.get('phone') || '').toString().trim(),
+            category: (data.get('category') || '').toString().trim(),
+            city: (data.get('city') || '').toString().trim(),
+            website: (data.get('website') || '').toString().trim(),
+            instagram: (data.get('instagram') || '').toString().trim(),
+            facebook: (data.get('facebook') || '').toString().trim(),
+            // Where Stripe Checkout returns the vendor. The backend validates
+            // these against its allowed-origin list before use.
+            successUrl: new URL('thank-you.html', window.location.href).href,
+            cancelUrl: window.location.href.split('#')[0],
+          };
+
+          if (btn) {
+            btn.disabled = true;
+            btn.textContent = 'Redirecting to secure checkout…';
+          }
+
+          fetch(form.action, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify(payload),
+          })
+            .then(function (res) {
+              return res.json().then(function (b) { return { ok: res.ok, body: b }; });
+            })
+            .then(function (r) {
+              if (r.ok && r.body && r.body.checkoutUrl) {
+                window.location.href = r.body.checkoutUrl;
+              } else {
+                throw new Error((r.body && r.body.message) || 'Submission failed');
+              }
+            })
+            .catch(function (err) {
+              showError(
+                (err && err.message) ||
+                  "Couldn't start your signup. Please try again, or email hello@wedspro.ca and we'll set you up.",
+              );
+            });
+        });
+      })();
+    </script>
+  </body>
+</html>
