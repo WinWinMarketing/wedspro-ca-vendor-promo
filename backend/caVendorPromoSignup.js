@@ -6,8 +6,8 @@
  * Backs the `/vendors` promo page (ca-vendor-promo/index.html). On submit it:
  *   1. Validates the vendor's details.
  *   2. Creates a Stripe Customer + a Checkout Session (subscription mode) with
- *      a 6-month free trial of the $365 CAD/year ("$1 a day") vendor plan.
- *      Stripe collects the card now, charges $0 today, and auto-charges $365
+ *      a 6-month free trial of the $300 CAD/year ("$1 a day, ~2 months free") plan.
+ *      Stripe collects the card now, charges $0 today, and auto-charges $300
  *      when the trial ends.
  *   3. Emails the lead to the WedsPro CA inbox (best-effort: a mail failure
  *      never blocks the vendor's checkout).
@@ -36,7 +36,7 @@
  *
  * ENVIRONMENT VARIABLES
  *   STRIPE_SECRET_KEY        (required)  Stripe secret key (sk_live_… / sk_test_…)
- *   STRIPE_CA_VENDOR_PRICE_ID(optional)  A pre-made recurring Price (CAD $365/yr).
+ *   STRIPE_CA_VENDOR_PRICE_ID(optional)  A pre-made recurring Price (CAD $300/yr).
  *                                        If unset, the price is created inline.
  *   CA_VENDOR_TRIAL_DAYS     (optional)  Free-trial length in days. Default 183.
  *   SITE_URL                 (required)  Public base URL of the promo site,
@@ -66,7 +66,7 @@ router.use(express.json());
 
 /* ----------------------------- config ------------------------------ */
 
-const PRICE_CAD_CENTS = 36500; // $365.00 CAD / year
+const PRICE_CAD_CENTS = 30000; // $300.00 CAD / year
 const TRIAL_DAYS = Math.max(2, parseInt(process.env.CA_VENDOR_TRIAL_DAYS || '183', 10) || 183);
 const SITE_URL = (process.env.SITE_URL || 'https://wedspro.ca').replace(/\/+$/, '');
 const MAX_LEN = 200; // hard cap on any single submitted field
@@ -157,7 +157,7 @@ const buildLeadEmailHtml = (v, when) => {
     ['Website', v.website || 'Not provided'],
     ['Instagram', v.instagram || 'Not provided'],
     ['Facebook', v.facebook || 'Not provided'],
-    ['Plan', '$1/day, 6 months free, then $365 CAD/year'],
+    ['Plan', '6 months free, then $300 CAD/year ($1/day, ~2 months free)'],
     ['Submitted at', when.toISOString()],
   ];
   const tableRows = rows
@@ -264,7 +264,7 @@ router.post('/signup', async (req, res) => {
             recurring: { interval: 'year' },
             product_data: {
               name: 'WedsPro Canada Vendor Plan',
-              description: '$1 a day, billed $365 CAD/year. First 6 months free.',
+              description: '$300 CAD/year ($1 a day, ~2 months free). First 6 months free.',
             },
           },
         };
